@@ -24,7 +24,7 @@ def square(fillColor):
 
 colors = []
 
-with open('Robin-Hood.txt', 'r') as book:
+with open(raw_input("Drop File Here\n> "), 'r') as book:
 	data = book.read().replace('\n', ' ')
 
 	finder = data.split()
