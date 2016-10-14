@@ -1,4 +1,5 @@
 from turtle import *
+from math   import sqrt
 
 side = 20
 
@@ -79,7 +80,7 @@ with open(raw_input("Drop File Here\n> "), 'r') as book:
 # counts to squareCount. When it reaches that threshhold the graph skips to a new line
 switch = 0
 # How many squares in a row
-squareCount = 12
+squareCount = sqrt(len(colors))
 
 speed("fastest")
 
