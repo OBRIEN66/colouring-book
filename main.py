@@ -1,8 +1,6 @@
 from turtle import *
 from math   import sqrt
 
-side = 20
-
 def square(fillColor):
 	color(fillColor)
 	begin_fill();
@@ -79,10 +77,19 @@ with open(raw_input("Drop File Here\n> "), 'r') as book:
 
 # counts to squareCount. When it reaches that threshhold the graph skips to a new line
 switch = 0
-# How many squares in a row
-squareCount = sqrt(len(colors))
 
+# How many squares in a row
+squareCount = int(sqrt(len(colors)))
+print squareCount
+
+#length of side
+side = 20
+
+Turtle gotta go FAST
 speed("fastest")
+
+# Center the square on screen
+goto(-(squareCount/2)*side, (squareCount/2)*side)
 
 for item in colors:
 	# makes a square with the item in colors
@@ -99,9 +106,5 @@ for item in colors:
 		forward(side)
 		left(90)
 
-# Keeps the window open and "hides" the turtle
-# Kinda sketchy but a wise man once said "sketchy is good"
-# ctrl C is your best friend here
-while True:
-	color("white")
-	forward(side * squareCount)
+# Keep alive
+mainloop()
