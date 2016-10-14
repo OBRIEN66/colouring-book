@@ -1,6 +1,5 @@
 from turtle import *
 
-speed("fastest")
 side = 20
 
 def square(fillColor):
@@ -81,6 +80,8 @@ with open(raw_input("Drop File Here\n> "), 'r') as book:
 switch = 0
 # How many squares in a row
 squareCount = 12
+
+speed("fastest")
 
 for item in colors:
 	# makes a square with the item in colors
