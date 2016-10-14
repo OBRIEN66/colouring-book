@@ -30,8 +30,9 @@ with open('Robin-Hood.txt', 'r') as book:
 	finder = data.split()
  
 	counter = 0 
+	
 	for x in range(len(finder) - 1):
-		
+		# Listen for each color and if found add to an array	
 		if finder[x] == "red" or finder[x] == "Red" or finder[x] == "red.":
 			counter += 1
 			colors.append("red")
@@ -76,13 +77,17 @@ with open('Robin-Hood.txt', 'r') as book:
 			counter += 1
 			colors.append("indigo")
 
+# counts to squareCount. When it reaches that threshhold the graph skips to a new line
 switch = 0
+# How many squares in a row
 squareCount = 12
 
-for x in colors:
-	square(x)
+for item in colors:
+	# makes a square with the item in colors
+	square(item)
 	switch += 1
 	
+	# Code that skips to new line
 	if switch == squareCount:
 		switch = 0
 		left(180)
@@ -92,6 +97,9 @@ for x in colors:
 		forward(side)
 		left(90)
 
+# Keeps the window open and "hides" the turtle
+# Kinda sketchy but a wise man once said "sketchy is good"
+# ctrl C is your best friend here
 while True:
 	color("white")
 	forward(side * squareCount)
