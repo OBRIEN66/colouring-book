@@ -20,6 +20,8 @@ def square(fillColor):
 	forward(side)
 
 
+# The list of colors. I left you a longer list, but I'll let you implement it
+possible_colors = ["RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "WHITE", "BLACK", "GREY", "GRAY", "INDIGO"]
 colors = []
 
 with open(raw_input("Drop File Here\n> "), 'r') as book:
@@ -28,40 +30,13 @@ with open(raw_input("Drop File Here\n> "), 'r') as book:
 	finder = data.split()
  
 	
-	for x in range(len(finder) - 1):
-		# Listen for each color and if found add to an array	
-		if finder[x] == "red" or finder[x] == "Red" or finder[x] == "red.":
-			colors.append("red")
-
-		elif finder[x] == "blue" or finder[x] == "Blue" or finder[x] == "blue.":
-			colors.append("blue")
-
-		elif finder[x] == "yellow" or finder[x] == "Yellow" or finder[x] == "yellow.":
-			colors.append("yellow")
-
-		elif finder[x] == "green" or finder[x] == "Green" or finder[x] == "green.":
-			colors.append("green")
-
-		elif finder[x] == "purple" or finder[x] == "Purple" or finder[x] == "purple.":
-			colors.append("purple")
-
-		elif finder[x] == "orange" or finder[x] == "Orange" or finder[x] == "orange.":
-			colors.append("orange")
-
-		elif finder[x] == "white" or finder[x] == "White" or finder[x] == "white.":
-			colors.append("white")
-
-		elif finder[x] == "black" or finder[x] == "Black" or finder[x] == "black.":
-			colors.append("black")
-
-		elif finder[x] == "grey" or finder[x] == "Grey" or finder[x] == "grey.":
-			colors.append("grey")
-
-		elif finder[x] == "gray" or finder[x] == "Gray" or finder[x] == "gray.":
-			colors.append("gray")
-
-		elif finder[x] == "indigo" or finder[x] == "Indigo" or finder[x] == "indigo":
-			colors.append("indigo")
+	# For every word in the finder...
+	for word in finder:
+		
+		# If the word is in our list of colors...	
+		if word.upper() in possible_colors:
+			# Add it to the list
+			colors.append(word)
 
 # counts to squareCount. When it reaches that threshhold the graph skips to a new line
 switch = 0
