@@ -85,7 +85,7 @@ print squareCount
 #length of side
 side = 20
 
-Turtle gotta go FAST
+# Turtle gotta go FAST
 speed("fastest")
 
 # Center the square on screen
