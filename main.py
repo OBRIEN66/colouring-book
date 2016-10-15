@@ -49,6 +49,7 @@ side = 20
 
 # Turtle gotta go FAST
 speed("fastest")
+color("white")
 
 # Center the square on screen
 goto(-(squareCount/2)*side, (squareCount/2)*side)
