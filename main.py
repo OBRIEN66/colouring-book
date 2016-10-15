@@ -1,7 +1,5 @@
 from turtle import *
-
-speed("fastest")
-side = 20
+from math   import sqrt
 
 def square(fillColor):
 	color(fillColor)
@@ -22,65 +20,38 @@ def square(fillColor):
 	forward(side)
 
 
+# The list of colors. I left you a longer list, but I'll let you implement it
+possible_colors = ["RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "WHITE", "BLACK", "GREY", "GRAY", "INDIGO"]
 colors = []
 
-with open('Robin-Hood.txt', 'r') as book:
+with open(raw_input("Drop File Here\n> "), 'r') as book:
 	data = book.read().replace('\n', ' ')
 
 	finder = data.split()
  
-	counter = 0 
 	
-	for x in range(len(finder) - 1):
-		# Listen for each color and if found add to an array	
-		if finder[x] == "red" or finder[x] == "Red" or finder[x] == "red.":
-			counter += 1
-			colors.append("red")
-
-		elif finder[x] == "blue" or finder[x] == "Blue" or finder[x] == "blue.":
-			counter += 1
-			colors.append("blue")
-
-		elif finder[x] == "yellow" or finder[x] == "Yellow" or finder[x] == "yellow.":
-			counter += 1
-			colors.append("yellow")
-
-		elif finder[x] == "green" or finder[x] == "Green" or finder[x] == "green.":
-			counter += 1
-			colors.append("green")
-
-		elif finder[x] == "purple" or finder[x] == "Purple" or finder[x] == "purple.":
-			counter += 1
-			colors.append("purple")
-
-		elif finder[x] == "orange" or finder[x] == "Orange" or finder[x] == "orange.":
-			counter += 1
-			colors.append("orange")
-
-		elif finder[x] == "white" or finder[x] == "White" or finder[x] == "white.":
-			counter += 1
-			colors.append("white")
-
-		elif finder[x] == "black" or finder[x] == "Black" or finder[x] == "black.":
-			counter += 1
-			colors.append("black")
-
-		elif finder[x] == "grey" or finder[x] == "Grey" or finder[x] == "grey.":
-			counter += 1
-			colors.append("grey")
-
-		elif finder[x] == "gray" or finder[x] == "Gray" or finder[x] == "gray.":
-			counter += 1
-			colors.append("gray")
-
-		elif finder[x] == "indigo" or finder[x] == "Indigo" or finder[x] == "indigo":
-			counter += 1
-			colors.append("indigo")
+	# For every word in the finder...
+	for word in finder:
+		
+		# If the word is in our list of colors...	
+		if word.upper() in possible_colors:
+			# Add it to the list
+			colors.append(word)
 
 # counts to squareCount. When it reaches that threshhold the graph skips to a new line
 switch = 0
+
 # How many squares in a row
-squareCount = 12
+squareCount = int(sqrt(len(colors)))
+
+#length of side
+side = 20
+
+# Turtle gotta go FAST
+speed("fastest")
+
+# Center the square on screen
+goto(-(squareCount/2)*side, (squareCount/2)*side)
 
 for item in colors:
 	# makes a square with the item in colors
@@ -97,9 +68,5 @@ for item in colors:
 		forward(side)
 		left(90)
 
-# Keeps the window open and "hides" the turtle
-# Kinda sketchy but a wise man once said "sketchy is good"
-# ctrl C is your best friend here
-while True:
-	color("white")
-	forward(side * squareCount)
+# Keep alive
+mainloop()
